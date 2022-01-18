@@ -33,6 +33,7 @@ const petsRoutes_1 = __importDefault(require("./api/routes/petsRoutes"));
 app.use("/auth", authRoutes_1.default);
 app.use("/users", usersRoutes_1.default);
 app.use("/pets", petsRoutes_1.default);
+app.use("/", express_1.default.static(path.join(__dirname, "build")));
 app.use("/images", express_1.default.static(path.join("images")));
 // Connect to db and start server
 const startServer = () => __awaiter(void 0, void 0, void 0, function* () {

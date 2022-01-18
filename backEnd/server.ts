@@ -1,6 +1,6 @@
 // Setup
 require("dotenv").config();
-import express from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 import connectDb from "./database/connection";
 const bodyParser = require("body-parser");
@@ -23,6 +23,7 @@ import petsRoutes from "./api/routes/petsRoutes";
 app.use("/auth", authRoutes);
 app.use("/users", usersRoutes);
 app.use("/pets", petsRoutes);
+app.use("/", express.static(path.join(__dirname, "build")));
 app.use("/images", express.static(path.join("images")));
 
 // Connect to db and start server
